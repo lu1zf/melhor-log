@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1 class="title">Melhor Log</h1>
-
+        <a href="{{ route('consumer') }}">Requisições por consumidor</a>
     </body>
 </html>
