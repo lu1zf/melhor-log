@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
+});
+
+Route::prefix('/report')->group(function(){
+    Route::get('/consumer', [LogController::class, 'exportLogsByConsumerId'])->name('consumer');
 });
