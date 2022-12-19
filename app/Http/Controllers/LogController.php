@@ -17,4 +17,9 @@ class LogController extends Controller
     {
         dd($this->logService->getRequestsByConsumerId());
     }
+
+    public function exportLogsByServiceId()
+    {
+        dd($this->logService->getRequestsByServiceId());
+    }
 }

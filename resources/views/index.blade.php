@@ -14,5 +14,6 @@
     <body>
         <h1 class="title">Melhor Log</h1>
         <a href="{{ route('consumer') }}">Requisições por consumidor</a>
+        <a href="{{ route('service') }}">Requisições por serviço</a>
     </body>
 </html>
