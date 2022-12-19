@@ -15,6 +15,16 @@ class LogService
         return $this->groupAndCount($requests, 'consumer_id');
     }
 
+    public function getRequestsByServiceId()
+    {
+        $requests = Log::select([
+            'log->request as request',
+            'log->service->id as service_id'
+        ])->get();
+
+        return $this->groupAndCount($requests, 'service_id');
+    }
+
     private function groupAndCount(Collection $data, $groupBy) : Collection
     {
         $grouped = $data->groupBy($groupBy);
