@@ -21,4 +21,5 @@ Route::get('/', function () {
 Route::prefix('/report')->group(function(){
     Route::get('/consumer', [LogController::class, 'exportLogsByConsumerId'])->name('consumer');
     Route::get('/service', [LogController::class, 'exportLogsByServiceId'])->name('service');
+    Route::get('/latencies', [LogController::class, 'exportAverageLatenciesByService'])->name('latencies');
 });

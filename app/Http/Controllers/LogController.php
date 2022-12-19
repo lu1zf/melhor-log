@@ -22,4 +22,9 @@ class LogController extends Controller
     {
         dd($this->logService->getRequestsByServiceId());
     }
+
+    public function exportAverageLatenciesByService()
+    {
+        dd($this->logService->getAverageLatenciesByService());
+    }
 }

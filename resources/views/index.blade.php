@@ -15,5 +15,6 @@
         <h1 class="title">Melhor Log</h1>
         <a href="{{ route('consumer') }}">Requisições por consumidor</a>
         <a href="{{ route('service') }}">Requisições por serviço</a>
+        <a href="{{ route('latencies') }}">Tempo médio de latências por serviço</a>
     </body>
 </html>
