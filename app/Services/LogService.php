@@ -2,6 +2,7 @@
 
 namespace App\Services;
 use App\Models\Log;
+use Illuminate\Support\Collection;
 
 class LogService
 {
@@ -11,11 +12,16 @@ class LogService
             'log->authenticated_entity->consumer_id->uuid as consumer_id'
         ])->get();
 
-        $groupedRequests = $requests->groupBy('consumer_id');
-        $countedRequests = $groupedRequests->map(function ($log){
-            return $log->count();
+        return $this->groupAndCount($requests, 'consumer_id');
+    }
+
+    private function groupAndCount(Collection $data, $groupBy) : Collection
+    {
+        $grouped = $data->groupBy($groupBy);
+        $countedGroup = $grouped->map(function($row){
+           return $row->count();
         });
 
-        return $countedRequests;
+        return $countedGroup;
     }
 }
